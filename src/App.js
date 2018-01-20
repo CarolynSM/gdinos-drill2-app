@@ -1,18 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { Header } from "./Header";
+import Profiles from "./Profiles";
+import { Footer } from "./Footer";
+import Test from "./Test.js";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    };
+  }
+  componentDidMount() {
+    fetch("./dinosaurs.json")
+      .then(response => response.json())
+      .then(response => {
+        this.setState({ data: response });
+      })
+      .catch(error => {});
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Header />
+        <Profiles dinosaurs={this.state.data} />
+        <Footer />
       </div>
     );
   }
