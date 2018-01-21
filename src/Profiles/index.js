@@ -9,23 +9,21 @@ export default class Profiles extends React.Component {
     this.createDino = this.createDino.bind(this);
   }
 
-  handleClick() {
-    this.setState({
-      show: !this.state.show
-    });
+  handleClick(event) {
+    if (event.target.parentNode.classList.contains("profile-header")) {
+      event.target.parentNode.parentNode.childNodes[1].classList.toggle("hidden");
+    }
   }
 
   createDino(item) {
     return (
-      <li onClick={this.handleClick.bind(this)}>
-        <div className="profile-card">
+      <li>
+        <div className="profile-card" onClick={this.handleClick.bind(this)}>
           <header className="profile-header">
             <img src={item.image} alt={item.name} />
             <h2>{item.name}</h2>
           </header>
-          <ToggleDisplay if={this.props.show}>
-            <Skills dinosaurs={item} />
-          </ToggleDisplay>
+          <Skills dinosaurs={item} />
         </div>
       </li>
     );
