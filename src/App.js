@@ -3,7 +3,6 @@ import "./App.css";
 import { Header } from "./Header";
 import Profiles from "./Profiles";
 import { Footer } from "./Footer";
-import Test from "./Test.js";
 
 class App extends Component {
   constructor(props) {

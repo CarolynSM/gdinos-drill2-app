@@ -1,6 +1,6 @@
 describe("Form submission", () => {
   it("Has a working profile page", () => {
-    cy.visit("/");
+    cy.visit("http://localhost:3000/");
 
     cy.get("#profiles > li").should("have.length.gte", 3);
 
