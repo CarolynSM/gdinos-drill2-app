@@ -1,6 +1,6 @@
 describe("Form submission", () => {
   it("Has a working profile page", () => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("https://csm-gdinos2.herokuapp.com/");
 
     cy.get("#profiles > li").should("have.length.gte", 3);
 
